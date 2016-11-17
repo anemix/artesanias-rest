@@ -4,10 +4,7 @@ import co.edu.uelbosque.software.entities.Product;
 import co.edu.uelbosque.software.entities.ProductRequest;
 import co.edu.uelbosque.software.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,5 +32,9 @@ public class ProductController {
         product.setDescription(productRequest.getDescription());
         product.setPrice(productRequest.getPrice());
         productrepo.save(product);
+    }
+    @RequestMapping(method = RequestMethod.GET, value = "/{productId}")
+    public Product findById(@PathVariable Integer productId){
+        return productrepo.findOne(productId);
     }
 }

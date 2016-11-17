@@ -8,6 +8,15 @@ public class ProductRequest {
     private String name;
     private String description;
     private double price;
+    private int stock;
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
 
     public String getName() {
         return name;
